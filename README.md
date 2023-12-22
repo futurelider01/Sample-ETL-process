@@ -9,8 +9,8 @@ While loading transferred rows/files will be shown in the terminal
 
 use requirements.txt for necessary modules
 
-Explaining in details:
-1. Windows Task Scheduler
+*Explaining in details:*
+**1. Windows Task Scheduler**
 To create a task with basic settings on Windows 10, use these steps:
   1. Open start
   2. Search Task Scheduler, and click Windows Task Scheduler
@@ -40,12 +40,12 @@ To create a task with basic settings on Windows 10, use these steps:
 
 
 
-2. Main function:
+**2. Main function:**
   1. main function get source either folder containging files or can get certain csv files from given source (just need to write path)
   2. function check it size if it is larger than 5MB than it call chunking method of ingesting, otherwise it call just ingest method (ingests at once)
   3. Every loading will logged and if it fails it will send email to admin reporting about failure specifying table and error occured. If sending email also fails, it will be logged to monitoring in the worst case.
   4. Everyday it will create monitoring_(executed date).csv and will write all information about ETL process: how much time spent, how much rows transferred, which file is loading to which table.
 
-3. About .env
+**3. About .env**
   1. Create ssms login, password, server name, database name.
   2. Create sender email and login, and reciever,
