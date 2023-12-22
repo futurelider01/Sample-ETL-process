@@ -34,6 +34,6 @@ To create a task with basic settings on Windows 10, use these steps:
   3. Every loading will logged and if it fails it will send email to admin reporting about failure specifying table and error occured. If sending email also fails, it will be logged to monitoring in the worst case.
   4. Everyday it will create monitoring_(executed date).csv and will write all information about ETL process: how much time spent, how much rows transferred, which file is loading to which table.
 
-3. .env
-   1. Create ssms login, password, server name, database name.
-   2. Create sender email and login, and reciever,
+3. About .env
+  1. Create ssms login, password, server name, database name.
+  2. Create sender email and login, and reciever,
