@@ -5,4 +5,5 @@ from core.basic import ingest_files
 source_folder = config.SOURCE_FOLDER
 
 # Calling main ingest function
-ingest_files(source_folder, chunk_size=2000000)
+# source_folder=['source/people', 'source/organizations']
+ingest_files(source_folder, chunk_size=50000)

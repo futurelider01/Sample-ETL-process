@@ -1,3 +1,4 @@
-CORE/ALERT.PY
 source/people-2000000.csv
 source/organizations.csv
+.env
+draft.py

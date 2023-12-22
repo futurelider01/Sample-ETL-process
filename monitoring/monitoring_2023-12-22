@@ -1,0 +1,162 @@
+
+Function "ingest_files" started...
+
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Successfully LOADED file organizations.csv to table organizations
+Transferred 100000 rows.
+Done
+
+Loading file people.csv to table people...
+Successfully LOADED 100 rows. Done
+
+Function "ingest_files" took 10.8653 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+
+-----------------------------------------------                
+Could not send email. Check credentials, please.
+Error: Invalid credentials for https://outlook.com/autodiscover/autodiscover.svc                
+-----------------------------------------------                
+Table customers failed.
+Error text: Column mismatch in table customers.Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Successfully LOADED file organizations.csv to table organizations
+Transferred 100000 rows.
+Done
+
+Loading file people.csv to table people...
+Successfully LOADED 100 rows. Done
+
+Function "ingest_files" took 11.1770 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+
+-----------------------------------------------                
+Could not send email. Check credentials, please.
+Error: Invalid credentials for https://outlook.com/autodiscover/autodiscover.svc                
+-----------------------------------------------                
+Table customers failed.
+Error text: Column mismatch in table customers.
+
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 10000 rows.
+Successfully LOADED file organizations.csv to table organizations
+Transferred 100000 rows.
+Done
+
+Loading file people.csv to table people...
+Successfully LOADED 100 rows. Done
+
+Function "ingest_files" took 10.5047 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+Function "ingest_files" took 0.0000 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+
+Function "ingest_files" started...
+
+Function "ingest_files" took 0.0000 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+Function "ingest_files" took 0.0000 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+Function "ingest_files" took 0.0000 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+Function "ingest_files" took 0.0000 seconds to run.
+------------------------------------------------------------------------
+
+Function "ingest_files" started...
+
+
+-----------------------------------------------                
+Could not send email. Check credentials, please.
+Error: Invalid credentials for https://outlook.com/autodiscover/autodiscover.svc                
+-----------------------------------------------                
+Table customers failed.
+Error text: Column mismatch in table customers.
+
+Loading file organizations.csv to table organizations...
+Successfully LOADED 50000 rows.
+Loading file organizations.csv to table organizations...
+Successfully LOADED 50000 rows.
+Successfully LOADED file organizations.csv to table organizations
+Transferred 100000 rows.
+Done
+
+Loading file people.csv to table people...
+Successfully LOADED 100 rows. Done
+
+Function "ingest_files" took 7.1359 seconds to run.
+------------------------------------------------------------------------

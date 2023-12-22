@@ -2,6 +2,7 @@ from core import config
 import os, pandas as pd, time
 from sqlalchemy import create_engine, inspect
 from datetime import datetime
+from core.alert import send
 
 connection_string = f"mssql+pyodbc://{config.USERNAME}:{config.PASSWORD}@{config.SERVER}/{config.DATABASE}?driver=ODBC+Driver+17+for+SQL+Server"
 
@@ -14,6 +15,9 @@ all_tables = inspector.get_table_names()
 # log func for logging in case of errors and loadings
 def logging(tableName,status='Fail',row_count=0,error_text='No',date=datetime.now()):
     """Logs any action with ETL process when it is called"""
+    cols=["Table Name","status","row inserted","error_text","Date"]
+    sql_row = pd.DataFrame(data=[[tableName,status,str(row_count),error_text,str(date)]],columns=cols)
+    sql_row.to_sql("logging",connection_string,index=False,if_exists='append')
     row = ','.join([tableName,status,str(row_count),error_text,str(date)])+'\n'
     with open('logs.csv','a') as f:
         f.write(row)
@@ -27,21 +31,22 @@ def just_ingest(file_path):
     table_name = os.path.splitext(os.path.basename(file_path))[0]
     # Read CSV file into a pandas DataFrame
     df = pd.read_csv(file_path)
-            
+
     if table_name in all_tables:
         # Table exists, check for column mismatch
         if not chech_columns_eq(table_name, df.columns):
             # Columns mismath error
             text=f"Column mismatch in table {table_name}."
             logging(table_name, error_text=text)
+            send(table_name, text)
             return
         
     # Insert into table, append data
-    print(f"Loading file {os.path.basename(file_path)} to table {table_name}...")
+    monitor(f"Loading file {os.path.basename(file_path)} to table {table_name}...\n")
     df.to_sql(name=table_name, con=engine, index=False, if_exists='append')
-    print(f"Successfully LOADED {len(df)} rows.\nDone\n")
+    monitor(f"Successfully LOADED {len(df)} rows. Done\n\n")
     # log it
-    logging(table_name, "Success", len(df))             
+    logging(table_name, "Success", len(df))
     
     
 
@@ -65,15 +70,16 @@ def chunk_ingest(file_path, chunk_size=200):
             # Columns mismath error
             text=f"Column mismatch in table {table_name}."
             logging(table_name, error_text=text)
+            send(table_name, text)
             return # Don't need to iterate again if columns mismatch
     rows=0            
     for chunk in df: # gets default every 200 rows
         rows+=len(chunk)
-        print(f"Loading file {os.path.basename(file_path)} to table {table_name}...")
+        monitor(f"Loading file {os.path.basename(file_path)} to table {table_name}...\n")
         chunk.to_sql(table_name, engine, index=False, if_exists='append')
-        print(f"Successfully LOADED {len(chunk)} rows.\n\n")
-    print(f"Successfully LOADED file {os.path.basename(file_path)} to table {table_name}\n"\
-          f"Transferred {rows} rows.\nDone\n")
+        monitor(f"Successfully LOADED {len(chunk)} rows.\n")
+    monitor(f"Successfully LOADED file {os.path.basename(file_path)} to table {table_name}\n"\
+          f"Transferred {rows} rows.\nDone\n\n")
             
     # log it
     logging(table_name,'Success',rows) 
@@ -97,14 +103,19 @@ def size(file_path):
 
 def timer_info(func):
     def wrapper(*args, **kwargs):
-        print(f"\n\nFunction \"{func.__name__}\" started...\n\n".center(50))
+        monitor(f"\nFunction \"{func.__name__}\" started...\n\n")
     
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         elapsed_time = end_time - start_time
-        print(f"Function \"{func.__name__}\" took {elapsed_time:.4f} seconds to run.\n\n\n")
+        monitor(f"Function \"{func.__name__}\" took {elapsed_time:.4f} seconds to run.\n"\
+                "------------------------------------------------------------------------\n")
         
         return result
     
     return wrapper
+
+def monitor(string):
+    with open(f'monitoring/monitoring_{datetime.now().date()}','a') as f:
+        f.write(string)

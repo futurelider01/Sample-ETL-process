@@ -1,5 +1,4 @@
 from core.functions import *
-import time
 # import all necessary funtions
 
 @timer_info
@@ -19,9 +18,11 @@ def ingest_files(source_folder_or_specific_files: str|list, chunk_size: int = No
     
     for file in csv_files:
         # generate file_path
-        file_path = os.path.join(source_folder_or_specific_files, file)
-        
-        #check size
+        if os.path.split(file)[0]=='source':
+            file_path =  os.path.join('source', os.path.split(file)[1])
+        else:
+            file_path = os.path.join(source_folder_or_specific_files, file)
+        # check size
         if size(file_path)>5: # in MB
             # It is large file
             chunk_ingest(file_path, chunk_size=chunk_size if chunk_size is not None else 200)
